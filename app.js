@@ -21,7 +21,7 @@ const item1 = new Item({
     name:"Welcome to your todoList!"
 });
 const item2 = new Item({
-    name:"Hit the  + button to add a new item."
+    name:"Hit the + button to add a new item."
 });
 const item3 = new Item({
     name:"<-- Hit this to delete an item.>"
@@ -101,6 +101,7 @@ app.post('/', function (req, res){
   app.post('/delete',function(req,res){
     const checkedItemId = req.body.checkbox;
     const listName = req.body.listName;
+    console.log(listName);
     if (listName === "Today" || listName === "today"){
         Item.findByIdAndRemove(checkedItemId,function(err){
             if (!err) {
